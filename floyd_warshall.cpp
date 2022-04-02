@@ -3,7 +3,7 @@ using namespace std;
 #define MAX 10000
 
 // function to print the path from specified source to destination
-void printpath(int source, int destination, int Next[][100])
+void printpath(int source, int destination, int Next[][500])
 {
     // If path doesn't exist from source to destination
     if (Next[source][destination] == -1)
@@ -25,7 +25,7 @@ void printpath(int source, int destination, int Next[][100])
 }
 
 // funtion to print the matrix with size n * n
-void validatematrix(int matrix[][100], int n)
+void validatematrix(int matrix[][500], int n)
 {
 
     for (int i = 0; i < n; i++)
@@ -39,7 +39,7 @@ void validatematrix(int matrix[][100], int n)
 }
 
 // funtion to print the matrix with size n * n
-void printmatrix(int matrix[][100], int n)
+void printmatrix(int matrix[][500], int n)
 {
     cout << "Matrix:\n";
     for (int i = 0; i < n; i++)
@@ -52,10 +52,10 @@ void printmatrix(int matrix[][100], int n)
 
 // This is the Floyd-Warshall Function which calculates the distance of shortest path from every source node to every vertex of the graph
 // Prints the path and path length(if exists) from source to destination
-void floyd_warshall(int distance[][100], int V, int E, int source, int destination)
+void floyd_warshall(int distance[][500], int V, int E, int source, int destination)
 {
 
-    int next[100][100]; // to get the shortest path from source to the destination
+    int next[500][500]; // to get the shortest path from source to the destination
 
     for (int i = 0; i < V; i++)
         for (int j = 0; j < V; j++)
@@ -104,7 +104,7 @@ void floyd_warshall(int distance[][100], int V, int E, int source, int destinati
         cout << "PATH LENGTH: " << distance[source][destination] << "\n";
 }
 
-void readfile(int argc, char *argv[], int &V, int &E, int distance[][100])
+void readfile(int argc, char *argv[], int &V, int &E, int distance[][500])
 {
     if (argc <= 1)
     {
@@ -158,7 +158,7 @@ void readfile(int argc, char *argv[], int &V, int &E, int distance[][100])
 int main(int argc, char *argv[])
 {
     int source, destination;
-    int distance[100][100];
+    int distance[500][500];
 
     int V, E;
     cout << "The sample input is as follows: \n";
@@ -167,7 +167,7 @@ int main(int argc, char *argv[])
     cout << "Enter the source and the destination " << endl;
     cout << "(Vertex numbers should be less than " << V << ")\n";
     cin >> source >> destination;
-    printmatrix(distance, V);
+    // printmatrix(distance, V);
 
     floyd_warshall(distance, V, E, source, destination);
 

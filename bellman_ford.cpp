@@ -228,7 +228,7 @@ void readfile(int argc, char *argv[], int &V, int &E, int distance[][3])
 int main(int argc, char *argv[])
 {
     int source, destination;
-    int distance[100][3];
+    int distance[1000][3];
 
     int V, E;
     cout << "The sample input is as follows: \n";
@@ -236,7 +236,6 @@ int main(int argc, char *argv[])
     cout << "Enter the source and the destination " << endl;
     cout << "(Vertex numbers should be less than " << V << ")\n";
     cin >> source >> destination;
-    cout << distance[0][0] << " " << distance[0][1] << " " << distance[0][2] << " ";
 
     graph *G = readfile_to_graph(V, E, distance);
     bellman_ford(G, source, destination);
