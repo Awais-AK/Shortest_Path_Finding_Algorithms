@@ -2,7 +2,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define MAX 10000
-#define FILENAME "sample1.txt"
 
 typedef struct adjlist_node // Structure to store node values in Adjacency List
 {
